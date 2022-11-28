@@ -34,20 +34,20 @@ def main():
         if user_input in ('стоп', 'stop'):
             break
 
-        # try:
-        request = Request(req_str=user_input, storages=storages)
-        # except BaseError as error:
-        #     print(error.message)
-        #     continue
-        # except Exception:
-        #    print('неожиданная ошибка')
-        #    continue
+        try:
+            request = Request(req_str=user_input, storages=storages)
+        except BaseError as error:
+             print(error.message)
+             continue
+        except Exception:
+            print('неожиданная ошибка')
+            continue
 
         courier = Courier(request=request, storages=storages)
-        # try:
-        courier.move()
-        # except BaseException as error:
-        #     print(error.message)
+        try:
+            courier.move()
+        except BaseException as error:
+            print(error.message)
 
 if __name__ == '__main__':
     main()
