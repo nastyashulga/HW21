@@ -3,7 +3,7 @@ from exeptions import InvalidRequestError, UnknownStorageError
 
 class Request:
     def __init__(self, req_str, storages):
-        split_req = req_str.lower.split(' ')
+        split_req = req_str.lower().split(' ')
         if len(split_req) != 7 or not split_req[1].isdigit():
             raise InvalidRequestError
 
